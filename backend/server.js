@@ -10,9 +10,10 @@ const app = express();
 // Middleware - Accessing Request Body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// Middleware - Error Handling
-app.use(errorHandler);
 // Routing
 app.use("/api/goals", require("./routes/goal-routes"));
+app.use("/api/users", require("./routes/user-routes"));
+// Middleware - Error Handling
+app.use(errorHandler);
 // Receive incoming requests on a port
 app.listen(port, () => console.log(`server started on port ${port}`));
